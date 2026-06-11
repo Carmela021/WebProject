@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product_detail.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+    <div class="flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endwith %}
+
+    <div class="all-products-section">
+        <div class="admin-header">
+            <h2 class="all-products-title">All Products</h2>
+            <a href="{{ url_for('product.add_product') }}" class="btn-add">+ Add New Product</a>
+            <a href="{{ url_for('product.shop') }}" class="btn-back-shop">← Back to Shop</a>
+        </div>
+
+        <div class="detail-divider"></div>
+
+        <div class="admin-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Condition</th>
+                        <th>Tag</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in all_products %}
+                    <tr>
+                        <td>
+                            <img class="product-img"
+                                 src="{{ url_for('static', filename=p.image) }}"
+                                 alt="{{ p.name }}">
+                        </td>
+                        <td>{{ p.name }}</td>
+                        <td>
+                            {% if p.old_price %}
+                            <span class="detail-old-price">₱{{ p.old_price }}</span>
+                            {% endif %}
+                            ₱{{ p.price }}
+                        </td>
+                        <td>{{ p.condition }}</td>
+                        <td>
+                            {% if p.tag %}
+                            <span class="tag-badge tag-{{ p.tag.lower() }}">{{ p.tag }}</span>
+                            {% else %}—{% endif %}
+                        </td>
+                        <td>
+                            <div class="action-btns">
+                                <a href="{{ url_for('product.product_detail', product_id=p.id) }}" class="btn-view">👁 View</a>
+                                <a href="{{ url_for('product.edit_product', product_id=p.id) }}" class="btn-edit-sm">✏️ Edit</a>
+                                <a href="{{ url_for('product.delete_product', product_id=p.id) }}" class="btn-delete-sm">🗑️ Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

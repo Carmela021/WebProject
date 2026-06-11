@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+<div class="form-page">
+    <div class="form-card">
+        <h1>Add New Product</h1>
+        <p class="form-subtitle">Fill in the details to list a new preloved item</p>
+        <div class="form-divider"></div>
+
+        <form method="POST" action="{{ url_for('product.add_product') }}">
+
+            <div class="form-group">
+                <label>Product Name *</label>
+                <input type="text" name="name" placeholder="e.g. Floral Dress" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="desc" placeholder="e.g. Flowery Thrift Dress">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Price *</label>
+                    <input type="number" name="price" placeholder="e.g. 99" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Original Price (optional)</label>
+                    <input type="number" name="old_price" placeholder="e.g. 150" step="0.01">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Condition</label>
+                    <input type="text" name="condition" placeholder="e.g. 9/10">
+                </div>
+                <div class="form-group">
+                    <label>Tag</label>
+                    <input type="text" name="tag" placeholder="NEW / SALE">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Image Path</label>
+                <input type="text" name="image" placeholder="e.g. img/Tops/top.jpg">
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" placeholder="e.g. Women / Men">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Add Product</button>
+                <a href="{{ url_for('product.shop') }}" class="btn-cancel">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

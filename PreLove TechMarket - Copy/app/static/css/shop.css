@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Meie+Script&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Satisfy&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+    --bg-dark: #889063;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-green: #4a5d4a;
+    --text-main: #e0e0e0;
+    --text-dim: #a0a0a0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    padding-top: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/*Shop hero Section*/
+
+.shop-hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    overflow: hidden;
+    margin: 20px;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+/* The Background Image (Behind the Glass) */
+.shop-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../img/Background/shop3back.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/*Glass layer*/
+.shop-content {
+    position: relative;
+    z-index: 10;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient Text Hover Effect*/
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #ff33cc;
+    margin-bottom: 10px;
+    transition: all 0.4s ease;
+    cursor: default;
+    text-align: center;
+}
+
+.hero-title:hover {
+
+    background: linear-gradient(to right, #C41E3A, #ffb347, #c8a58b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: scale(1.02);
+}
+
+.shploved {
+    font-family: 'Cookie', cursive;
+    font-size: 4rem;
+    color: #fefe22;
+    margin-bottom: 10px;
+    transition: all 0.4s ease;
+    cursor: default;
+    text-align: center;
+}
+
+.shploved:hover {
+    background: linear-gradient(to right, #C41E3A, #ffb347, #c8a58b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: scale(1.02);
+}
+
+.hero-subtitle {
+    color: #fc89ac;
+    text-align: center;
+}
+
+.hero-subtitle:hover {
+    background: linear-gradient(to right, #C9FFBF, #FFAFBD);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: scale(1.02);
+}
+
+#follower {
+    position: absolute;
+    top: 55%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: auto;
+    z-index: 5;
+    transition: transform 0.1s ease-out;
+    pointer-events: auto;
+}
+
+#follower:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    #follower {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero-arrow {
+        display: none;
+    }
+
+    #follower {
+        position: relative;
+        left: 50%;
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    .shop-hero {
+        flex-direction: column;
+        height: auto;
+        padding-top: 50px;
+    }
+}
+
+.shop-section {
+    padding: 0px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    font-family: 'Serif', Georgia, serif;
+}
+
+.preloved-catalog-wrapper {
+
+    --catalog-bg: #0a0c0a;
+    --catalog-card: rgba(255, 255, 255, 0.05);
+    --catalog-text: #e0e0e0;
+    --catalog-dim: #a0a0a0;
+
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    background: linear-gradient(rgba(10, 12, 2, 0.65), rgba(10, 12, 10, 0.2)),
+        url('../img/Background/shop4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--catalog-text);
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.product-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.card-info a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.card-info a:hover h3 {
+    color: #C9A0DC;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+}
+
+/* Grid and Cards */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.product-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px);
+}
+
+
+
+.image-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1), filter 0.3s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+
+}
+
+.product-card:hover .image-container img {
+    transform: rotateX(10deg) rotateY(-10deg) translateZ(30px) scale(1.1);
+    filter: drop-shadow(20px 30px 25px rgba(0, 0, 0, 0.5));
+}
+
+.sheen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.product-card:hover .sheen-overlay {
+    transform: translateX(100%);
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card-info p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+}
+
+.condition-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--catalog-text);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.condition-tag.high-quality {
+    border-color: #C41E3A;
+    color: #C41E3A;
+}
+
+.price {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff4757;
+    color: white;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.new-tag {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #ffffff;
+    color: #000000;
+    padding: 4px 10px 4px 15px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    z-index: 20;
+
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+
+    color: white;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-btn:hover {
+
+    background: rgba(242, 180, 180, 0.4);
+
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(242, 180, 180, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #E8DCCB;
+    color: #C41E3A;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#backToTop:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+.card-info a h3 {
+    transition: all 0.3s ease;
+}
+
+.card-info a:hover h3 {
+    color: #8B5E9E;
+    text-shadow: 0 0 15px rgba(139, 94, 158, 0.7),
+                 0 0 30px rgba(139, 94, 158, 0.4);
+    text-decoration: none;
+}

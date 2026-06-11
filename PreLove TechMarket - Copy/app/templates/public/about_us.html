@@ -1,0 +1,163 @@
+{% extends '/base.html' %}
+
+{% block content %}
+
+
+ 
+<section class="abouthero">
+    <video autoplay muted loop id="bgVideo"><source src="{{url_for('static',filename='video/bgVid.mp4')}}"></video>
+    <h1>About Us</h1>
+    <p>We promote sustainable fashion by giving preloved clothes a new home. Each piece is carefully
+        selected for quality and style</p>
+</section>
+
+<!-- ABOUT-->
+<section class="aboutcontainer">
+    <div>
+        <img src="{{ url_for('static', filename='img/aboutus_pics/Maris.jpg') }}">
+    </div>
+
+    <div class="aboutcontent">
+        <h5>WHO WE ARE</h5>
+        <div class="aboutquote">
+            <p>"Ate, sandali. my 50-peso ukay ukay dress that i found in Baguio made it to ASAP!!"</p>
+            <span>MARIS RACAL</span>
+        </div>
+        <h1>Fashion is about passion,<br>not just clothes</h1>
+        <p>If you want to be fashionable yet still sustainable, this shop is a great place to get your new looks
+            from.</p>
+
+        <h3>Fashion Trendsetter</h3>
+        <p>At a glance, it may look like your regular ukay-ukay but it's definitely more than that.</p>
+
+    </div>
+</section>
+
+<!-- STATUS-->
+<section class="aboutstatus">
+    <div>1K+<span>Product Sold</span></div>
+    <div>700+<span>Completed Projects</span></div>
+    <div>800+<span>Happy Customers</span></div>
+    <div>10+<span>Years Experience</span></div>
+</section>
+
+<section class="aboutteam">
+    <h3>Meet Our Team</h3>
+    <div class="abtext">
+        "Behind every <span class="abtloved">PreLoved </span>item we believe in giving things a second chance and
+        <br>
+        making them even more valuable"
+    </div>
+    <div class="team-container">
+
+        <div class="member-grid">
+            <div class="member">
+                <img src="{{ url_for('static', filename='img/aboutus_pics/Carms.jpg') }}">
+                <div class="member-info">
+                    <h3>Maria Carmela Sola</h3>
+                    <div class="icon">
+                        <a href="https://www.facebook.com/mariacarmela.sola.3" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="tel:+639123456789">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                        <a href="https://">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                <img src="{{ url_for('static', filename='img/aboutus_pics/Janine.jpg') }}">
+                <div class="member-info">
+                    <h3>Janine Mae Ladines</h3>
+                    <div class="icon">
+                        <div class="icons">
+                            <a href="https://www.facebook.com/janinemae.ladines" target="_blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+
+                            <a href="tel:+639625004139">
+                                <i class="fa-solid fa-phone"></i>
+                            </a>
+
+                            <a href="https://janinemaeladines@gmail.com">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                <img src="{{ url_for('static', filename='img/aboutus_pics/Aya.jpg') }}">
+                <div class="member-info">
+                    <h3>Carla Andrea Poblete</h3>
+                    <div class="icon">
+                        <a href="https://pobletecarlaandrea@gmail.com" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="tel:+639638441768">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                        <a href="mailto:youremail@example.com">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                <img src="{{ url_for('static', filename='img/aboutus_pics/Jm.jpg') }}">
+                <div class="member-info">
+                    <h3>John Michael Marasigan</h3>
+                    <div class="icon">
+                        <a href="https://johnmichaelmarasigan98@gmail.com" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="tel:+639922475850">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                        <a href="mailto:youremail@example.com">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                <img src="{{ url_for('static', filename='img/aboutus_pics/Benedict.jpg') }}">
+                <div class="member-info">
+                    <h3>Al Benedict Armando</h3>
+                    <div class="icon">
+                        <a href="https://albenedictarmando00@gmail.com" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="tel:+639923611732">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                        <a href="mailto:youremail@example.com">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</section>
+{% endblock %}
+
+
+
+

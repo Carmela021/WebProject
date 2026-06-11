@@ -1,0 +1,44 @@
+<div class="promo-bar">
+    <i class="fa-solid fa-chevron-left"></i>
+    <span>SHOP PRELOVED FASHION FOR LESS</span>
+    <i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<header>
+
+    <div class="logo">
+        Pre<span class="loved-text">Loved</span> <br> TechMarket
+    </div>
+    <nav>
+        <a href="{{ url_for('product.home') }}" class="{{ 'active' if request.endpoint == 'product.home' }}">Home</a>
+
+        <a href="{{ url_for('product.shop') }}" class="{{ 'active' if request.endpoint == 'product.shop' }}">Shop</a>
+
+        <a href="{{ url_for('pages.about_us') }}" class="{{ 'active' if request.endpoint == 'pages.about_us' }}">About
+            Us</a>
+
+        <a href="{{ url_for('pages.contact_us') }}"
+            class="{{ 'active' if request.endpoint == 'pages.contact_us' }}">Contact Us</a>
+    </nav>
+    <div class="header-right">
+
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button onclick="searchProducts()"><i class="fa fa-search"></i></button>
+        </div>
+
+        <div class="cart">🛒 <span id="cart-count">0</span></div>
+
+        <div class="user-menu-container">
+            <i class="fa-solid fa-user user-profile"></i>
+            <div class="auth-dropdown">
+                <a href="#">Log In</a>
+                <hr>
+                <a href="#">Sign Up</a>
+                <hr>
+                <a href="{{ url_for('product.all_products') }}">Admin Panel</a>
+            </div>
+        </div>
+
+    </div>
+</header>

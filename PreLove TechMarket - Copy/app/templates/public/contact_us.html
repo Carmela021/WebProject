@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/contact.css')}}">
+    {% endblock %}
+
+{% block content %}
+<!--CONTACT US-->
+    <section class="contact-head">
+        <h1>CONTACT US</h1>
+        <p>We're here to help you look your best!</p>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="contact-info">
+        <div class="contact-card">📞 Phone Number<br><span>09983041749</span></div>
+        <div class="contact-card">📧 Email Address<br><span>PreLovedTechMarket@gmail.com</span></div>
+        <div class="contact-card">📍 Address<br><span>PUP Unisan, Quezon</span></div>
+        <div class="contact-card">
+            <i class="fa-brands fa-facebook-f"></i> Facebook<br>
+            <span>Maria Carmela Sola</span>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-form">
+        <div class="contact-left">
+            <h2>Get In <span>Touch</span> with our team anytime</h2>
+            <p>We’d love to hear from you!</p>
+
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7747.775071959314!2d121.96479678153992!3d13.845788712251382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a2958fff7f86a1%3A0x699ef1cba8f56a17!2sPolytechnic%20University%20of%20the%20Philippines%20(Unisan%2C%20Quezon%20Campus)!5e0!3m2!1sen!2sus!4v1776855279291!5m2!1sen!2sus"></iframe>
+            </div>
+
+        </div>
+
+        <div class="contact-right">
+            <form>
+                <div class="contact-row">
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                </div>
+                <input type="email" placeholder="Email Address">
+                <textarea placeholder="Your Question"></textarea>
+                <button class="contact-button" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const form = document.querySelector("form");
+
+        form.onsubmit = function (e) {
+            e.preventDefault();
+
+            const first = form.querySelector('input[placeholder="First Name"]').value;
+            const last = form.querySelector('input[placeholder="Last Name"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const msg = form.querySelector("textarea").value;
+
+            if (!first || !last || !email || !msg) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            alert("Message sent!");
+            form.reset();
+        };
+    </script>
+
+
+    <!-- NEWSLETTER -->
+    <section class="contact-newsletter">
+        <h3>Subscribe to newsletter</h3>
+        <p>Get notified for our latest news and offers</p>
+        <div class="contact-subs">
+            <input type="email" placeholder="Your email address">
+            <button class="contact-button">Subscribe Now</button>
+        </div>
+    </section>
+
+
+{% endblock %}

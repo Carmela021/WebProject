@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h3>Closet Finds</h3>
+        <h1>Handpicked fashion. Quality you can trust.</h1>
+        <p>Give clothes a second life with our curated preloved collection.</p>
+    </div>
+</section>
+<div class="ticker-wrapper">
+    <div class="ticker">
+
+        {% for i in range(6) %}
+        <span>⚡MID SEASON SALE NOW ON - <a href="{{ url_for('product.shop') }}">SHOP NOW ⚡</a></span>
+        {% endfor %}
+
+    </div>
+
+    <section id="categories" class="categories">
+        <h2>Shop by Category</h2>
+
+        <div class="category-grid">
+            {% for category in categories %}
+            <!-- <a href="{{ category.link }}" class="category-link"> -->
+                <div class="category-card">
+                    <div class="icon">{{ category.icon }}</div>
+                    <span>{{ category.name }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="shop" class="products">
+        <h2>Featured Products</h2>
+
+        <div class="slider-container">
+            <button class="prev" onclick="scrollSlider(-300)">❮</button>
+
+            <div class="product-grid" id="featured-slider">
+
+                <!-- FEATURED PRODUCTS -->
+                {% for item in featured_products %}
+                <div class="product">
+
+                    <a href="{{ url_for('product.product_detail', product_id=item.id) }}">
+                        <img src="{{ url_for('static', filename=item.image) }}">
+                    </a>
+
+                    <div class="product-info">
+                        <a href="{{ url_for('product.product_detail', product_id=item.id) }}">
+                            <h3>{{ item.name }}</h3>
+                        </a>
+                        <p>₱{{ item.price | int }}</p>
+                        <button onclick="addToCart(); event.stopPropagation()">Add to Cart</button>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+
+            <button class="next" onclick="scrollSlider(300)">❯</button>
+        </div>
+    </section>
+
+
+    <section class="sale">
+        <h2>On Sale</h2>
+        <div class="sale-timer">
+            Ends in: <span id="countdown">00:00:00</span>
+        </div>
+
+
+
+        <div class="product-grid">
+            {% for product in sale_products %}
+            <div class="product">
+
+                <a href="{{ url_for('product.product_detail', product_id=product.id) }}">
+                    <img src="{{ url_for('static', filename=product.image) }}">
+                </a>
+
+                <a href="{{ url_for('product.product_detail', product_id=product.id) }}">
+                    <h3>{{ product.name }}</h3>
+                </a>
+
+                <p>
+                    {% if product.old_price %}
+                    <del>₱{{ product.old_price }}</del>
+                    {% endif %}
+                    ₱{{ product.price }}
+                </p>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="saleproduct">
+            <a href="{{ url_for('product.shop') }}">
+                <button>Shop Now</button>
+            </a>
+        </div>
+    </section>
+
+    <div class="features-bar">
+        {% for feature in features %}
+        <div class="feature-item">
+            <i class="{{ feature.icon }}"></i>
+
+            <div class="feature-text">
+                <strong>{{ feature.title }}</strong>
+                <span>{{ feature.desc }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <section class="reviews">
+        <h2>What Our Customers Say</h2>
+
+        <div class="review-container">
+            {% for review in reviews %}
+            <div class="review">
+                <p>"{{ review.text }}"</p>
+                <span>{{ review.stars }} - {{ review.name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% endblock %}

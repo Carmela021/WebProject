@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/shop.css')}}">{% endblock %}
+{% block content %}
+
+<section class="shop-hero">
+    <div class="shop-content">
+        <div class="hero-title">Your Favorite <span class="shploved">PreLoved </span> Clothes</div>
+        <h3 class="hero-subtitle">Sustainable fashion, delivered to you.</h3>
+    </div>
+
+    <div class="hero-image-container">
+        <img src="{{ url_for('static', filename='img/Background/shophero.png') }}" id="follower"
+            alt="Preloved Favorites">
+    </div>
+</section>
+
+<div class="preloved-catalog-wrapper">
+    <section class="shop-section">
+
+
+        <div class="product-grid">
+            {% for product in products %}
+            <div class="product-card">
+
+                {% if product.tag %}
+                <div class="{{ product.tag.lower() }}-tag">{{ product.tag }}</div>
+                {% endif %}
+
+                <div class="image-container">
+                    <div class="sheen-overlay"></div>
+                    <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+                </div>
+
+                <div class="card-info">
+                     <a href="{{ url_for('product.product_detail', product_id=product.id) }}">
+                        <h3>{{ product.name }}</h3>
+                    </a>
+                    {% if product.old_price %}
+                    <span class="old-price"><del>₱{{ product.old_price }}</del></span>
+                    {% endif %}
+                    <span class="price">₱{{ product.price }}</span>
+
+                    <button class="add-btn" onclick="addToCart('{{ product.name }}')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+    <button id="backToTop" title="Go to top">↑</button>
+</div>
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/shop.js') }}"></script>
+{% endblock %}
+{% endblock %}
